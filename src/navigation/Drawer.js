@@ -5,7 +5,7 @@ import CityScreen from '../Screens/CityScreen';
 
 const DrawerNavigation = createDrawerNavigator();
 
-export default function drawer() {
+export default function Drawer() {
   return (
     <DrawerNavigation.Navigator initialRouteName='Home'>
         <DrawerNavigation.Screen name='Home' component={HomeScreen} />
