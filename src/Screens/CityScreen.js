@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import { View, Button } from 'react-native'
+import { View, Button, Text, TextInput } from 'react-native'
+import CityCard from '../components/CityCard'
 import { useSearchCitiesQuery } from '../features/citiesAPI'
 
 export default function CityScreen({ navigation }) {
@@ -14,15 +15,11 @@ export default function CityScreen({ navigation }) {
   return (
     <View className='Cities-container'>
       <Text>Cities</Text>
-      <Textinput className='Cities-input' type="search" placeholder='Search' ref={search} onChangeText={handleValue} />
+      <TextInput className='Cities-input' type="search" placeholder='Search' ref={search} onChangeText={handleValue} />
       <View className='Cities-card-container'>
         {cities?.map(CityCard)}
         <Button onPress={() => navigation.goBack()} title="Go back home" />
       </View>
     </View>
   )
-  // return (
-  //   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-  //   </View>
-  // )
 }
