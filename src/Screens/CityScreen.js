@@ -1,10 +1,28 @@
-import React from 'react'
+import { useRef, useState } from 'react'
 import { View, Button } from 'react-native'
+import { useSearchCitiesQuery } from '../features/citiesAPI'
 
 export default function CityScreen({ navigation }) {
+  const [searching, setSearching] = useState()
+  const search = useRef("")
+  const handleValue = () => {
+    setSearching(search.current.value)
+  }
+
+  let { data: cities } = useSearchCitiesQuery(search.current ? search.current.value : "")
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    <View className='Cities-container'>
+      <Text>Cities</Text>
+      <Textinput className='Cities-input' type="search" placeholder='Search' ref={search} onChangeText={handleValue} />
+      <View className='Cities-card-container'>
+        {cities?.map(CityCard)}
+        <Button onPress={() => navigation.goBack()} title="Go back home" />
+      </View>
     </View>
   )
+  // return (
+  //   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  //   </View>
+  // )
 }
