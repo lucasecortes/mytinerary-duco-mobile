@@ -1,36 +1,38 @@
 import React from 'react'
-import { View, Button, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import Hero from '../components/Hero'
 import StyledText from '../components/StyledText'
 import theme from '../theme'
+import { useGetAllCitiesQuery } from '../features/citiesAPI'
+import Carousel from '../components/Carousel'
 
-export default function HomeScreen({ navigation }) {
+
+export default function HomeScreen() {
+  let {data: cities} = useGetAllCitiesQuery()
+
   return (
-    <View style={styles.container}>
-      <View style={styles.container}>
-        <Image source={{uri: 'https://i.imgur.com/OZpDvUU.png'}} style={styles.image}></Image>
-        <StyledText fontSize='title' fontWeight='bold'>MyTinerary</StyledText>
-        <StyledText textStyle='italic' align='center' color='primary' fontWeight='bold' fontSize='subheading'>Find your perfect trip, designed by insiders who know and love their cities!</StyledText>
-        <Button
-        onPress={() => navigation.navigate('Cities')}
-        title="Find your next destination"/>
-      </View>
-      <View style={styles.container}>
-        <StyledText color='textPrimary' fontSize='subheading' fontWeight='bold'>Popular MyTineraries</StyledText>
-      </View>
-    </View>
+        <ScrollView>
+          <Hero/>
+          <View style={styles.container}>
+            <StyledText style={{padding:23}} fontWeight='bold' fontSize='h2'>Popular MyTineraries</StyledText>
+            <Carousel data={cities}/>
+          </View>
+        </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    width: '100%',
+    height: '100%',
+    opacity: 0.2,
+  },
   container: {
+    backgroundColor: theme.colors.background,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.background,
-    padding: 20,
+    height: '100%'
   },
-  image: {
-    width: 200,
-    height: 200,
-  }
 })
