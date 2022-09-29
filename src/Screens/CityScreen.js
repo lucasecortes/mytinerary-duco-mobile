@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { View, Button } from 'react-native'
+import { View, Button, Text, TextInput } from 'react-native'
 import { useSearchCitiesQuery } from '../features/citiesAPI'
 
 export default function CityScreen({ navigation }) {
