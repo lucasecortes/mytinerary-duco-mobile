@@ -3,9 +3,12 @@ import { View, StyleSheet } from "react-native";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import StyledText from "./StyledText";
 import theme from '../theme'
+import { useNavigation } from "@react-navigation/native";
 
 export default function Button(props){
     let text = props.text
+    let navigation = useNavigation()
+
 
     return (
         <View>
