@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
     citiesContainer: {
         flex: 1,
-        width: 290,
+        width: 260,
         height: 220,
         marginTop: 15,
         borderRadius: 15,
