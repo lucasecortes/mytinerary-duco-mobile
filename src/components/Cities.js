@@ -6,7 +6,7 @@ import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import StyledText from './StyledText';
 import SeeMore from './SeeMore'
 
-export default function Cities(props){
+export default function Cities(props) {
     // const navigation = useNavigation
     const cityView = (city) => {
         // const toCity = () => {
@@ -16,17 +16,17 @@ export default function Cities(props){
         // }
         return (
             <Pressable
-            style={styles.citiesContainer}
-            key={city._id}
+                style={styles.citiesContainer}
+                key={city._id}
             >
-            {/* onPress={()=>toCity()} */}
+                {/* onPress={()=>toCity()} */}
                 <ImageBackground
                     style={styles.cityContainer}
-                    source={{uri:city.photo}}
+                    source={{ uri: city.photo }}
                     resizeMode='cover'>
                     <StyledText align='center' fontWeight='bold' fontSize='title'>{city.city}</StyledText>
                     <StyledText align='center' fontWeight='bold' fontSize='h2'>{city.country}</StyledText>
-                    <SeeMore text='See More'/>
+                    <SeeMore text='See more' />
                 </ImageBackground>
             </Pressable>
         )
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "100%",
         heigth: "100%",
+        opacity: 0.8
     },
     citiesContainer: {
         flex: 1,
@@ -56,4 +57,4 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         overflow: "hidden",
     }
-    });
+});
