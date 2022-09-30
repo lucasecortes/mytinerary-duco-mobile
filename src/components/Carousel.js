@@ -1,5 +1,6 @@
 import { StyleSheet, ScrollView, View, ImageBackground, Dimensions } from 'react-native';
 import StyledText from './StyledText';
+import SeeMore from './SeeMore'
 
 const Carousel = (props) => {
     const dimension= Dimensions.get('window');
@@ -20,6 +21,7 @@ const Carousel = (props) => {
                             style={styles.imageBackground}>
                             <StyledText align='center' fontWeight='bold' fontSize='title'>{value.city}</StyledText>
                             <StyledText align='center' fontWeight='bold' fontSize='h2'>{value.country}</StyledText>
+                            <SeeMore text='See More'/>
                         </ImageBackground>
                     </View>
                 ))}
@@ -33,11 +35,13 @@ imageBackground: {
     width: '100%',
     height: '100%',
     resizeMode: 'cover',
-    flex: 1, 
+    flex: 1,
+    alignItems: 'center',
     justifyContent:'center',
     opacity: 0.9,
     borderRadius: 20,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    marginBottom: 15
 }
 });
 
