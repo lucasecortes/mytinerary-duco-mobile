@@ -8,7 +8,7 @@ import CitiesScreen from './src/Screens/CitiesScreen';
 import SignIn from './src/Screens/SignIn';
 import SignUp from './src/Screens/SignUp';
 import { StatusBar } from 'react-native';
-import CityDetails from './src/components/CityDetails';
+import Details from './src/Screens/Details';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,7 +25,7 @@ export default function App() {
         }}>
           <Drawer.Screen name="Home" component={HomeScreen} />
           <Drawer.Screen name="Cities" component={CitiesScreen} />
-          <Drawer.Screen name="City Details" component={CityDetails} />
+          <Drawer.Screen name="Details" component={Details} />
           <Drawer.Screen name='Sign In' component={SignIn} />
           <Drawer.Screen name='Sign Up' component={SignUp} />
         </Drawer.Navigator>
