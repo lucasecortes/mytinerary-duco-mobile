@@ -5,13 +5,13 @@ import StyledText from "./StyledText";
 import theme from '../theme'
 import { useNavigation } from "@react-navigation/native";
 
-export default function Button(props){
+export default function SeeMore(props){
     let text = props.text
     let navigation = useNavigation()
 
     return (
         <View>
-            <Pressable style={styles.button} onPress={() => navigation.navigate('Sign In')}>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('City Details')}>
                 <StyledText fontWeight='bold' color='primary'>{text}</StyledText>
             </Pressable>
         </View>
