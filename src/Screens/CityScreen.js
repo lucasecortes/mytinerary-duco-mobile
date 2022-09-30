@@ -11,15 +11,16 @@ export default function CityScreen({ navigation }) {
   }
 
   let { data: cities } = useSearchCitiesQuery(search.current ? search.current.value : "")
-
+console.log(data);
   return (
-    <View className='Cities-container'>
+    <View>
       <Text>Cities</Text>
-      <TextInput className='Cities-input' type="search" placeholder='Search' ref={search} onChangeText={handleValue} />
-      <View className='Cities-card-container'>
-        {cities?.map(CityCard)}
-        <Button onPress={() => navigation.goBack()} title="Go back home" />
-      </View>
+      <TextInput type="search" placeholder='Search' ref={search} onChangeText={handleValue} />
+      <Text data={cities}>
+        
+        {/* {cities?.map(CityCard)} */}
+      </Text>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   )
 }
