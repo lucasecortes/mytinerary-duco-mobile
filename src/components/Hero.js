@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
       },
       image: {
         width: 200,
-        height: 200,
+        height: 200
       },
       backgroundImage: {
-        opacity: 0.9,
+        opacity: 0.8,
         height: 400
       }
 })
