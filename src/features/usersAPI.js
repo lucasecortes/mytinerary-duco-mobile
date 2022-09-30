@@ -1,0 +1,56 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+const userAPI = createApi({
+  reducerPath: "userAPI",
+
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://my-tinerary-back-duco.herokuapp.com',
+  }),
+
+  endpoints: (builder) => ({
+    getOneUser: builder.mutation({
+      query: (id) => ({
+        url: `/auth/${id}`,
+        method: "GET",
+      }),
+    }),
+    signUp: builder.mutation({
+      query: (dataCity) => ({
+        url: `/auth/signup`,
+        method: "POST",
+        body: dataCity,
+      }),
+    }),
+    signIn: builder.mutation({
+      query: (dataCity) => ({
+        url: `/auth/signin`,
+        method: "POST",
+        body: dataCity,
+      }),
+    }),
+    signOut: builder.mutation({
+      query: (id) => ({
+        url: `/auth/signout`,
+        method: "POST",
+        body: id,
+      }),
+    }),
+    editCity: builder.mutation({
+      query: ({ dataUser, id }) => ({
+        url: `/auth/${id}`,
+        method: "PATCH",
+        body: dataUser,
+      }),
+    }),
+  })
+});
+
+export default userAPI;
+
+export const {
+  useSignInMutation,
+  useSignOutMutation,
+  useSignUpMutation,
+  useGetOneUserMutation,
+  useEditCityMutation
+} = userAPI;

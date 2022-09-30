@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import store from './src/features/store';
+import HomeScreen from './src/Screens/HomeScreen';
+import CitiesScreen from './src/Screens/CitiesScreen';
+import SignIn from './src/Screens/SignIn';
+import SignUp from './src/Screens/SignUp';
+import { StatusBar } from 'react-native';
+import Details from './src/Screens/Details';
+import NewCity from './src/Screens/NewCity';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Provider store={store}>
+        <StatusBar style='light'/>
+        <Drawer.Navigator initialRouteName="Home" screenOptions={{
+          headerStyle: {
+            backgroundColor: '#061116',
+          },
+          headerTintColor: '#fff'
+        }}>
+          <Drawer.Screen name="Home" component={HomeScreen} />
+          <Drawer.Screen name="Cities" component={CitiesScreen} />
+          <Drawer.Screen name="Details" component={Details} />
+          <Drawer.Screen name='Sign In' component={SignIn} />
+          <Drawer.Screen name='Sign Up' component={SignUp} />
+          <Drawer.Screen name='New City' component={NewCity} />
+        </Drawer.Navigator>
+      </Provider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
