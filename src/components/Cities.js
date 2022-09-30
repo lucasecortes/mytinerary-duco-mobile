@@ -4,6 +4,7 @@ import { ImageBackground, StyleSheet, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import StyledText from './StyledText';
+import SeeMore from './SeeMore'
 
 export default function Cities(props){
     const navigation = useNavigation()
@@ -21,10 +22,11 @@ export default function Cities(props){
             >
                 <ImageBackground
                     style={styles.cityContainer}
-                    source={{uri:city.photo}}
+                    source={{ uri: city.photo }}
                     resizeMode='cover'>
                     <StyledText align='center' fontWeight='bold' fontSize='title'>{city.city}</StyledText>
                     <StyledText align='center' fontWeight='bold' fontSize='h2'>{city.country}</StyledText>
+                    <SeeMore text='See more' />
                 </ImageBackground>
             </Pressable>
         )
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "100%",
         heigth: "100%",
+        opacity: 0.8
     },
     citiesContainer: {
         flex: 1,
@@ -54,4 +57,4 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         overflow: "hidden",
     }
-    });
+});
