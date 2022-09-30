@@ -14,14 +14,14 @@ const Carousel = (props) => {
                 style={{ height: 300, width: '100%' }}
                 horizontal
                 pagingEnabled>
-                {cities?.map((value, key) => (
-                    <View style={{ height: '100%', width: dimension.width }}>
+                {cities?.map((value) => (
+                    <View style={{ height: '100%', width: dimension.width }} key={value._id}>
                         <ImageBackground
                             source={{ uri: `${value.photo}` }} key={value._id}
                             style={styles.imageBackground}>
                             <StyledText align='center' fontWeight='bold' fontSize='title'>{value.city}</StyledText>
                             <StyledText align='center' fontWeight='bold' fontSize='h2'>{value.country}</StyledText>
-                            <SeeMore text='See More'/>
+                            <SeeMore text='See more'/>
                         </ImageBackground>
                     </View>
                 ))}
@@ -38,7 +38,7 @@ imageBackground: {
     flex: 1,
     alignItems: 'center',
     justifyContent:'center',
-    opacity: 0.9,
+    opacity: 0.8,
     borderRadius: 20,
     overflow: 'hidden',
     marginBottom: 15
