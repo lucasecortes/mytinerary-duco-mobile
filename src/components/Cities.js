@@ -1,4 +1,4 @@
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 import { ImageBackground, StyleSheet, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
@@ -6,19 +6,19 @@ import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import StyledText from './StyledText';
 
 export default function Cities(props){
-    // const navigation = useNavigation
+    const navigation = useNavigation()
     const cityView = (city) => {
-        // const toCity = () => {
-        //     navigation.navigate('City', {
-        //         id: city._id
-        //     })
-        // }
+        const toCity = () => {
+            navigation.navigate('City', {
+                id: city._id
+            })
+        }
         return (
             <Pressable
             style={styles.citiesContainer}
             key={city._id}
+            onPress={()=>toCity()}
             >
-            {/* onPress={()=>toCity()} */}
                 <ImageBackground
                     style={styles.cityContainer}
                     source={{uri:city.photo}}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     citiesContainer: {
         flex: 1,
-        width: '100%',
+        width: 290,
         height: 220,
         marginTop: 15,
         borderRadius: 15,
